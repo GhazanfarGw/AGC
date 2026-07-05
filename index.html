@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<!-- AGC Construction live-link ready website: original branding preserved with project images in assets folder. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AGC Construction | Steel Structure, Logistics Warehouses & Storage Facilities</title>
+  <meta name="description" content="AGC Construction is a specialist construction company based in the North of England, focused on steel structure buildings, logistics warehouses and storage facilities." />
+  <style>
+    :root {
+      --navy: #071422;
+      --navy-soft: #102337;
+      --steel: #8fa3b8;
+      --orange: #f47c20;
+      --orange-dark: #d96410;
+      --light: #f5f7fa;
+      --white: #ffffff;
+      --text: #243042;
+      --muted: #6a7482;
+      --border: #dde5ef;
+      --shadow: 0 18px 45px rgba(7, 20, 34, 0.14);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--white);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1140px, calc(100% - 40px)); margin: 0 auto; }
+
+    .topbar {
+      background: var(--navy);
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 14px;
+      padding: 10px 0;
+    }
+    .topbar .container { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(221, 229, 239, 0.8);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; min-height: 78px; gap: 24px; }
+    .logo { display: flex; align-items: center; gap: 12px; font-weight: 900; color: var(--navy); letter-spacing: .02em; font-size: 22px; }
+    .logo-mark {
+      width: 46px; height: 46px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--orange), #ffb05f);
+      color: var(--white); display: grid; place-items: center; font-weight: 900;
+      box-shadow: 0 10px 28px rgba(244, 124, 32, .35);
+    }
+    .nav-links { display: flex; align-items: center; gap: 28px; color: var(--navy-soft); font-size: 15px; font-weight: 800; }
+    .nav-links a:hover { color: var(--orange); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 48px; padding: 0 24px; border-radius: 999px; border: 1px solid transparent;
+      font-weight: 900; transition: .2s ease; cursor: pointer; white-space: nowrap;
+    }
+    .btn-primary { background: var(--orange); color: var(--white); box-shadow: 0 14px 30px rgba(244, 124, 32, .28); }
+    .btn-primary:hover { background: var(--orange-dark); transform: translateY(-1px); }
+    .btn-outline { border-color: rgba(255, 255, 255, .42); color: var(--white); }
+    .btn-outline:hover { background: rgba(255, 255, 255, .12); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(7, 20, 34, .96) 0%, rgba(7, 20, 34, .88) 45%, rgba(7, 20, 34, .48) 100%),
+        url('assets/hero-steel-structure.webp') center/cover;
+      color: var(--white);
+      padding: 112px 0 90px;
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: auto -12% -28% auto; width: 520px; height: 520px;
+      border-radius: 50%; background: rgba(244, 124, 32, .22); filter: blur(8px);
+    }
+    .hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.12fr .88fr; align-items: center; gap: 54px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px; color: #ffd0a6;
+      font-weight: 900; text-transform: uppercase; letter-spacing: .11em; font-size: 13px; margin-bottom: 18px;
+    }
+    .eyebrow::before { content: ""; width: 38px; height: 2px; background: var(--orange); }
+    .hero h1 { font-size: clamp(41px, 6vw, 74px); line-height: 1.02; letter-spacing: -.05em; max-width: 820px; margin-bottom: 24px; }
+    .hero p { max-width: 690px; color: rgba(255, 255, 255, .85); font-size: 19px; margin-bottom: 32px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-card {
+      background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .18);
+      backdrop-filter: blur(14px); border-radius: var(--radius); padding: 26px; box-shadow: 0 24px 60px rgba(0, 0, 0, .22);
+    }
+    .hero-card h3 { font-size: 22px; margin-bottom: 16px; }
+    .hero-card ul { list-style: none; display: grid; gap: 13px; }
+    .hero-card li { color: rgba(255, 255, 255, .84); padding-left: 30px; position: relative; }
+    .hero-card li::before {
+      content: "✓"; position: absolute; left: 0; top: 0; width: 21px; height: 21px; border-radius: 50%;
+      background: var(--orange); color: var(--white); display: inline-grid; place-items: center; font-size: 12px; font-weight: 900;
+    }
+
+    .stats { background: var(--white); margin-top: -38px; position: relative; z-index: 4; }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-radius: var(--radius); background: var(--white); box-shadow: var(--shadow); overflow: hidden; border: 1px solid var(--border); }
+    .stat { padding: 28px; border-right: 1px solid var(--border); }
+    .stat:last-child { border-right: 0; }
+    .stat strong { display: block; color: var(--navy); font-size: 32px; line-height: 1; margin-bottom: 8px; }
+    .stat span { color: var(--muted); font-weight: 800; font-size: 14px; }
+
+    section { padding: 86px 0; }
+    .section-head { display: flex; justify-content: space-between; gap: 30px; align-items: end; margin-bottom: 40px; }
+    .section-head .kicker { color: var(--orange); font-weight: 900; text-transform: uppercase; letter-spacing: .12em; font-size: 13px; margin-bottom: 10px; }
+    .section-head h2 { color: var(--navy); font-size: clamp(32px, 4vw, 48px); line-height: 1.1; letter-spacing: -.04em; max-width: 730px; }
+    .section-head p { max-width: 440px; color: var(--muted); font-size: 16px; }
+
+    .focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .focus-card { position: relative; min-height: 380px; border-radius: var(--radius); overflow: hidden; background: var(--navy); color: var(--white); box-shadow: var(--shadow); }
+    .focus-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,20,34,.08), rgba(7,20,34,.93)); z-index: 1; }
+    .focus-card:nth-child(1) { background: url('assets/steel-structure-warehouse.webp') center/cover; }
+    .focus-card:nth-child(2) { background: url('assets/birmingham-garrets-green.webp') center/cover; }
+    .focus-card:nth-child(3) { background: url('assets/hall-green-external.webp') center/cover; }
+    .focus-content { position: absolute; inset: auto 0 0 0; z-index: 2; padding: 28px; }
+    .focus-content .number { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: var(--orange); font-weight: 900; margin-bottom: 18px; }
+    .focus-content h3 { font-size: 25px; line-height: 1.15; margin-bottom: 10px; }
+    .focus-content p { color: rgba(255, 255, 255, .82); }
+
+    .image-strip { background: var(--light); padding: 0 0 86px; }
+    .strip-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 22px; }
+    .strip-image { min-height: 380px; border-radius: var(--radius); overflow: hidden; position: relative; box-shadow: var(--shadow); background-size: cover; background-position: center; }
+    .strip-image.large { background-image: url('assets/hero-steel-structure.webp'); }
+    .strip-side { display: grid; gap: 22px; }
+    .strip-side .strip-image { min-height: 179px; }
+    .strip-side .strip-image:nth-child(1) { background-image: url('assets/birmingham-garrets-green.webp'); }
+    .strip-side .strip-image:nth-child(2) { background-image: url('assets/doncaster-large-storage.webp'); }
+    .strip-label {
+      position: absolute; left: 18px; bottom: 18px; background: rgba(7,20,34,.88); color: var(--white);
+      padding: 10px 14px; border-radius: 999px; font-size: 13px; font-weight: 900;
+    }
+
+    .about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 54px; align-items: center; }
+    .image-stack { position: relative; }
+    .image-main { min-height: 480px; border-radius: var(--radius); background: url('assets/godalming-storage.webp') center/cover; box-shadow: var(--shadow); }
+    .image-badge { position: absolute; right: -22px; bottom: 34px; background: var(--white); border-radius: 18px; padding: 22px; max-width: 230px; box-shadow: var(--shadow); border-left: 6px solid var(--orange); }
+    .image-badge strong { display: block; color: var(--navy); font-size: 24px; margin-bottom: 4px; }
+    .image-badge span { color: var(--muted); font-weight: 800; font-size: 14px; }
+    .about h2 { color: var(--navy); font-size: clamp(32px, 4vw, 50px); line-height: 1.08; letter-spacing: -.04em; margin-bottom: 22px; }
+    .about p { color: var(--muted); margin-bottom: 18px; font-size: 17px; }
+    .check-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; list-style: none; margin-top: 24px; }
+    .check-list li { background: var(--light); border: 1px solid var(--border); border-radius: 14px; padding: 13px 14px 13px 42px; position: relative; font-weight: 900; color: var(--navy-soft); }
+    .check-list li::before { content: "✓"; position: absolute; left: 14px; top: 13px; color: var(--orange); font-weight: 900; }
+
+    .projects { background: var(--light); }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .project-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: 0 14px 35px rgba(7,20,34,.08); transition: .2s ease; }
+    .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .project-image { height: 235px; background-size: cover; background-position: center; position: relative; }
+    .project-card:nth-child(1) .project-image { background-image: url('assets/steel-structure-warehouse.webp'); }
+    .project-card:nth-child(2) .project-image { background-image: url('assets/birmingham-garrets-green.webp'); }
+    .project-card:nth-child(3) .project-image { background-image: url('assets/doncaster-large-storage.webp'); }
+    .project-card:nth-child(4) .project-image { background-image: url('assets/godalming-storage.webp'); }
+    .project-card:nth-child(5) .project-image { background-image: url('assets/hall-green-external.webp'); }
+    .project-image span { position: absolute; left: 14px; top: 14px; background: rgba(7,20,34,.88); color: var(--white); font-size: 12px; font-weight: 900; padding: 7px 11px; border-radius: 999px; }
+    .project-body { padding: 22px; }
+    .project-body .sector { display: block; color: var(--orange); font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 9px; }
+    .project-body h3 { color: var(--navy); font-size: 20px; line-height: 1.2; margin-bottom: 10px; }
+    .project-body p { color: var(--muted); font-size: 15px; }
+    .note { margin-top: 18px; color: var(--muted); font-size: 13px; }
+
+    .why { background: linear-gradient(90deg, rgba(7,20,34,.96), rgba(7,20,34,.84)), url('assets/hall-green-external.webp') center/cover; color: var(--white); }
+    .why .section-head h2, .why .section-head p { color: var(--white); }
+    .why .section-head p { color: rgba(255,255,255,.76); }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .why-item { background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; padding: 24px; backdrop-filter: blur(10px); }
+    .why-item strong { display: block; color: var(--white); font-size: 19px; margin-bottom: 7px; }
+    .why-item span { color: rgba(255,255,255,.72); font-size: 15px; }
+
+    .contact { background: var(--light); }
+    .contact-box { display: grid; grid-template-columns: .9fr 1.1fr; gap: 30px; background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; border: 1px solid var(--border); }
+    .contact-info { background: var(--navy); color: var(--white); padding: 42px; }
+    .contact-info h2 { font-size: 36px; line-height: 1.1; margin-bottom: 18px; letter-spacing: -.03em; }
+    .contact-info p { color: rgba(255,255,255,.75); margin-bottom: 28px; }
+    .contact-detail { display: grid; gap: 14px; margin-top: 28px; }
+    .contact-detail div { background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 15px; }
+    .contact-detail strong { display: block; color: #ffd0a6; font-size: 12px; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 4px; }
+    form { padding: 42px; display: grid; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    label { display: grid; gap: 7px; color: var(--navy-soft); font-weight: 900; font-size: 14px; }
+    input, textarea, select { width: 100%; border: 1px solid var(--border); background: var(--light); border-radius: 12px; padding: 14px 15px; font: inherit; color: var(--text); outline: none; }
+    input:focus, textarea:focus, select:focus { border-color: var(--orange); box-shadow: 0 0 0 4px rgba(244,124,32,.12); }
+    textarea { min-height: 130px; resize: vertical; }
+    footer { background: #050d16; color: rgba(255,255,255,.72); padding: 30px 0; }
+    footer .container { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; align-items: center; }
+    footer strong { color: var(--white); }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .hero-grid, .about-grid, .contact-box, .strip-grid { grid-template-columns: 1fr; }
+      .focus-grid, .why-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { padding: 82px 0 78px; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 14px; }
+      .image-badge { right: 16px; }
+    }
+    @media (max-width: 650px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .topbar .container, footer .container { display: block; }
+      .topbar span, footer span { display: block; margin-bottom: 6px; }
+      .logo { font-size: 19px; }
+      .hero h1 { font-size: 40px; }
+      .hero p { font-size: 17px; }
+      .stats-grid, .projects-grid, .check-list, .form-row { grid-template-columns: 1fr; }
+      .stat { border-right: 0; border-bottom: 1px solid var(--border); }
+      .stat:last-child { border-bottom: 0; }
+      section { padding: 64px 0; }
+      .image-strip { padding-bottom: 64px; }
+      .contact-info, form { padding: 28px; }
+      .strip-image, .image-main { min-height: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span>Specialist construction contractor based in the North of England</span>
+      <span>Email: info@agcconstruction.co.uk | Phone: +44 7771 555928</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="#home" class="logo" aria-label="AGC Construction home">
+        <span class="logo-mark">AGC</span>
+        <span>AGC Construction</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#focus">Main Focus</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#why">Why Choose Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="btn btn-primary">Discuss a Project</a>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Steel Structure | Logistics | Storage</span>
+          <h1>Specialists in building steel structure construction in logistics warehouses & storage facilities.</h1>
+          <p>AGC Construction is a specialist construction company based in the North of England, focused on delivering high-quality steel structure buildings, logistics warehouses and storage facilities.</p>
+          <div class="hero-actions">
+            <a href="#focus" class="btn btn-primary">View Our Services</a>
+            <a href="#projects" class="btn btn-outline">See Project Types</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="AGC Construction highlights">
+          <h3>Built for commercial performance</h3>
+          <ul>
+            <li>Steel frame buildings and structural steel installation</li>
+            <li>Logistics warehouse construction and refurbishment</li>
+            <li>Self-storage facilities and commercial storage units</li>
+            <li>Reliable delivery from planning to completion</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="container stats-grid">
+        <div class="stat"><strong>01</strong><span>Steel Structure Construction</span></div>
+        <div class="stat"><strong>02</strong><span>Logistics Warehouse Construction</span></div>
+        <div class="stat"><strong>03</strong><span>Storage Facility Construction</span></div>
+      </div>
+    </div>
+
+    <section id="focus">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Main Focus</div>
+            <h2>Specialist construction services for industrial and commercial clients.</h2>
+          </div>
+          <p>We work with commercial clients, developers, logistics operators and storage businesses to deliver durable, practical and professionally managed construction projects from start to finish.</p>
+        </div>
+        <div class="focus-grid">
+          <article class="focus-card">
+            <div class="focus-content"><span class="number">1</span><h3>Steel Structure Construction</h3><p>We specialise in steel frame buildings, structural steel installation and industrial steel structure solutions for commercial and logistics projects.</p></div>
+          </article>
+          <article class="focus-card">
+            <div class="focus-content"><span class="number">2</span><h3>Logistics Warehouse Construction</h3><p>We design and build practical warehouse spaces for logistics, distribution, storage, loading areas and operational efficiency.</p></div>
+          </article>
+          <article class="focus-card">
+            <div class="focus-content"><span class="number">3</span><h3>Storage Facility Construction</h3><p>We deliver self-storage facilities, commercial storage units and refurbishment projects for storage operators and property owners.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="image-strip" aria-label="Construction image showcase">
+      <div class="container strip-grid">
+        <div class="strip-image large"><span class="strip-label">Steel structure & industrial construction</span></div>
+        <div class="strip-side">
+          <div class="strip-image"><span class="strip-label">Warehouse and logistics spaces</span></div>
+          <div class="strip-image"><span class="strip-label">Storage facility fit-out</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container about-grid">
+        <div class="image-stack">
+          <div class="image-main" role="img" aria-label="Steel structure construction site"></div>
+          <div class="image-badge"><strong>North of England</strong><span>Commercial & industrial construction specialist</span></div>
+        </div>
+        <div>
+          <div class="section-head" style="margin-bottom: 0; display:block;"><div class="kicker">About AGC Construction</div></div>
+          <h2>Practical construction delivery for steel structures, warehouses and storage facilities.</h2>
+          <p>AGC Construction is focused on delivering high-quality steel structure buildings, logistics warehouses and storage facilities across the North of England.</p>
+          <p>Our approach is simple: understand the client requirement, plan properly, build safely and deliver a durable commercial space that performs for the long term.</p>
+          <ul class="check-list">
+            <li>Steel structure specialist</li>
+            <li>Warehouse construction</li>
+            <li>Storage facilities</li>
+            <li>Industrial refurbishment</li>
+            <li>Roofing and cladding</li>
+            <li>Project delivery support</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Finished Projects</div>
+            <h2>Completed steel structure, warehouse and self-storage project examples.</h2>
+          </div>
+          <p>These project images have been added to show finished storage facilities, warehouse-style construction and steel structure works for client approval.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-image" role="img" aria-label="Steel structure construction project"><span>Finished Project</span></div>
+            <div class="project-body"><span class="sector">Steel Structure / Logistics</span><h3>Steel Structure Warehouse Development</h3><p>Steel frame construction for a commercial warehouse-style facility, designed for logistics, storage use and long-term operational performance.</p></div>
+          </article>
+          <article class="project-card">
+            <div class="project-image" role="img" aria-label="Self storage facility reception and exterior"><span>Finished Project</span></div>
+            <div class="project-body"><span class="sector">Self Storage / Commercial</span><h3>Storage Facility Reception & External Works</h3><p>Finished self-storage facility with upgraded reception frontage, external façade, access improvements and customer-facing commercial presentation.</p></div>
+          </article>
+          <article class="project-card">
+            <div class="project-image" role="img" aria-label="Large self storage warehouse building at night"><span>Finished Project</span></div>
+            <div class="project-body"><span class="sector">Storage / Warehousing</span><h3>Large Self-Storage Warehouse Facility</h3><p>Commercial storage building with warehouse-style envelope, illuminated signage, secure access and operational layout for storage users.</p></div>
+          </article>
+          <article class="project-card">
+            <div class="project-image" role="img" aria-label="Modern self storage facility exterior"><span>Finished Project</span></div>
+            <div class="project-body"><span class="sector">Storage Facility / Fit-Out</span><h3>Modern Storage Facility Upgrade</h3><p>Completed storage facility refurbishment with modern façade, reception area, parking access and professional external finishing.</p></div>
+          </article>
+          <article class="project-card">
+            <div class="project-image" role="img" aria-label="Self storage building exterior"><span>Finished Project</span></div>
+            <div class="project-body"><span class="sector">Self Storage / Commercial Construction</span><h3>Self-Storage Building Completion</h3><p>External works and storage facility completion including cladding, glazing, reception entrance and commercial building presentation.</p></div>
+          </article>
+        </div>
+        <p class="note">Project photographs shown with permission for AGC Construction website use.</p>
+      </div>
+    </section>
+
+    <section id="why" class="why">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">Why Choose AGC Construction</div><h2>Built around specialist focus, reliability and practical delivery.</h2></div>
+          <p>AGC Construction supports clients with clear communication, professional project management and durable construction solutions.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-item"><strong>Specialist in steel structure construction</strong><span>Focused capability for steel frame buildings and structural steel works.</span></div>
+          <div class="why-item"><strong>Specialist in logistics warehouses</strong><span>Practical warehouse spaces designed for distribution, loading and storage operations.</span></div>
+          <div class="why-item"><strong>Specialist in storage facilities</strong><span>Construction and refurbishment support for self-storage and commercial storage operators.</span></div>
+          <div class="why-item"><strong>Based in the North of England</strong><span>Positioned to support industrial and commercial projects across the region.</span></div>
+          <div class="why-item"><strong>Reliable project delivery</strong><span>Clear planning, practical coordination and dependable construction management.</span></div>
+          <div class="why-item"><strong>Support from planning to completion</strong><span>End-to-end support from early project discussions through to final handover.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container contact-box">
+        <div class="contact-info">
+          <div class="kicker" style="color:#ffd0a6;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:13px;margin-bottom:12px;">Contact</div>
+          <h2>Ready to discuss your next project?</h2>
+          <p>Contact AGC Construction for steel structure construction, logistics warehouses and storage facility projects across the North of England.</p>
+          <div class="contact-detail">
+            <div><strong>Email</strong><span>info@agcconstruction.co.uk</span></div>
+            <div><strong>Phone</strong><span><a href="tel:+447771555928">+44 7771 555928</a></span></div>
+            <div><strong>Address</strong><span>Unit B88, Trafford Wharf Industrial Estate, Trafford Park, Manchester, M17 1DJ</span></div>
+          </div>
+        </div>
+        <form action="mailto:info@agcconstruction.co.uk" method="post" enctype="text/plain">
+          <div class="form-row">
+            <label>Name<input type="text" name="name" placeholder="Your name" required /></label>
+            <label>Phone<input type="tel" name="phone" placeholder="Your phone number" /></label>
+          </div>
+          <label>Email<input type="email" name="email" placeholder="Your email address" required /></label>
+          <label>Project Type<select name="project_type"><option>Steel Structure Construction</option><option>Logistics Warehouse Construction</option><option>Storage Facility Construction</option><option>Industrial Refurbishment</option><option>Other Commercial Project</option></select></label>
+          <label>Message<textarea name="message" placeholder="Tell us about your project"></textarea></label>
+          <button type="submit" class="btn btn-primary">Send Enquiry</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span><strong>AGC Construction</strong> | Steel Structure, Logistics Warehouses & Storage Facilities</span>
+      <span>Unit B88, Trafford Wharf Industrial Estate, Trafford Park, Manchester, M17 1DJ | +44 7771 555928</span>
+      <span>© 2026 AGC Construction. All rights reserved.</span>
+    </div>
+  </footer>
+</body>
+</html>
